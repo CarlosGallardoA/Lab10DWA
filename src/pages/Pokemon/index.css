@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .container-title {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  h1 {
+    text-align: center;
+    color: rebeccapurple;
+    font-size: 2em;
+  }
+  
+  .container > div > h4 {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  .container div {
+    width: 20%;
+    text-align: center;
+    border: solid 1px #000;
+    margin: 10px;
+  }

@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Counter, Table } from "./components";
+import Navigation from "./components/navigation";
+import { Pokemons } from "./pages";
+import Home from "./pages/Home";
 
 function App() {
+  const datos = [
+    {
+      nombre: "Juan",
+      apellido: "Perez",
+      celular: "123456789",
+      correo: "jaun@perez.com",
+    },
+    {
+      nombre: "Pedro",
+      apellido: "Perez",
+      celular: "123456789",
+      correo: "pedro@juan.com",
+    },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/contador"
+            element={<Counter text1={"Sumar"} text2={"Restar"} />}
+          />
+          <Route path="/table" element={<Table datos={datos} />} />
+          <Route path="/pokedex" element={<Pokemons />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
